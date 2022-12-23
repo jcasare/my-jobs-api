@@ -26,14 +26,17 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
+app.get("/", (req, res) => {
+  res.send(`Jay's job Api`);
+});
+
 // routes
 app.use("/api/v1/auth0", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
-app.get('/', (req,res)=>{
-res.send('job api')})
+
 const port = process.env.PORT || 3000;
 
 const start = async () => {
