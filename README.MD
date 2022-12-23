@@ -55,7 +55,8 @@ Email Validation Regex
 - xss-clean
 - express-rate-limit
 - 
-Using Postman
+#### Using Postman
+
 Set Global Variable
 eg. VARIABLE: PROD_URL, VALUE:https://jays-job-db.onrender.com/api/v1
 
