@@ -54,16 +54,22 @@ Email Validation Regex
 - cors
 - xss-clean
 - express-rate-limit
+- 
+Using Postman
+Set Global Variable
+eg. VARIABLE: PROD_URL, VALUE:https://jays-job-db.onrender.com/api/v1
 
-Swagger UI
+Routes
+Login: POST {{global variable set}}/auth0/login
+Register:POST {{global variable set}}/auth0/register
 
-```yaml
-/jobs/{id}:
-  parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: the job id
-```
+Dynamically add tokens by creating token value under tests of login and register 
+eg: const jsonData = pm.response.json()
+pm.globals.set("accessToken", jsonData.token);
+
+Now select Bearer Token under Authorization for remaining routes below
+Get All Jobs:GET  {{Global Variable Set}}/jobs
+Create Job :POST  {{Global Variable Set}}/jobs
+Get Single Job:GET   {{Global Variable Set}}/jobs/your_job_id
+Update Job: PATCH {{Global Variable Set}}/jobs/your_job_id
+Delete Job:DELETE {{Global Variable Set}}/jobs/your_job_id
