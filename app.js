@@ -25,7 +25,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(cors());
 app.use(xss());
-
 app.get("/", (req, res) => {
   res.send(`Jay's job Api`);
 });
